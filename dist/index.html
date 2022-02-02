@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cambay&family=Rowdies&family=Rubik:wght@400;500;700&family=Sarpanch&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/imask"></script>
     
     <title>Travels</title>
 </head>
@@ -304,7 +305,7 @@
             
     
             <div class="payment-title">
-                <h1>Payment Information</h1>
+                <h1>Информация по оплате</h1>
             </div>
             <div class="container__card preload">
                 <div class="creditcard">
@@ -402,7 +403,7 @@
                             </g>
                         </svg>
                     </div>
-                </div> class="card__inp"
+                </div>
             </div>
             <div class="form-container">
                 <div class="field-container">
@@ -424,6 +425,14 @@
                 <div class="field-container">
                     <label for="securitycode">CVV</label>
                     <input class="card__inp" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+                </div>
+                <div class="field-container">
+                    <label for="prycecode">Сумма</label>
+                    <input class="card__inp" id="prycecode" type="text" pattern="[0-9]*" inputmode="numeric">
+                </div>
+                <div class="field-container">
+               
+                    <button>Оплатить</button>
                 </div>
             </div>
     
