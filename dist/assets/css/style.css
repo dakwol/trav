@@ -499,6 +499,10 @@ body {
     padding-bottom: 30px;
 }
 
+.section__admin {
+    padding-top: 30px;
+}
+
 .search {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
@@ -810,6 +814,70 @@ select:focus {
     background-color: #202020;
 }
 
+.admin__panel {
+    background-color: #363636;
+    border-radius: 25px;
+    padding: 30px 0;
+}
+
+.admin__panel h1 {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.admin__table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.admin__table label {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+    width: 50%;
+}
+
+.admin__table input {
+    width: 50%;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    padding: 10px;
+    color: #fff;
+}
+
+.admin__table input:focus {
+    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.81);
+}
+
+.admin__table select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 10px;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+    text-align: left;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    line-height: inherit;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.admin__table select:focus {
+    background-color: #202020;
+}
+
 .sidebar {
     width: 50px;
     height: 100vh;
@@ -819,7 +887,15 @@ select:focus {
     transition: .2s linear;
 }
 
-.sidebar .close {
+.sidebar .sidebar__header {
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.sidebar .sidebar__header .close {
     width: 50px;
     height: 51px;
     position: relative;
@@ -829,9 +905,10 @@ select:focus {
     justify-content: center;
     -ms-flex-align: center;
     align-items: center;
+    cursor: pointer;
 }
 
-.sidebar .close .close__btn {
+.sidebar .sidebar__header .close .close__btn {
     position: relative;
     content: '';
     width: 30px;
@@ -839,7 +916,7 @@ select:focus {
     background-color: #fff;
 }
 
-.sidebar .close .close__btn::before {
+.sidebar .sidebar__header .close .close__btn::before {
     content: '';
     position: absolute;
     top: 7px;
@@ -848,7 +925,7 @@ select:focus {
     background-color: #fff;
 }
 
-.sidebar .close .close__btn::after {
+.sidebar .sidebar__header .close .close__btn::after {
     content: '';
     position: absolute;
     bottom: 7px;
@@ -857,34 +934,17 @@ select:focus {
     background-color: #fff;
 }
 
-.sidebar .close.active .close__btn {
-    -webkit-transform: rotateZ(45deg);
-    transform: rotateZ(45deg);
-}
-
-.sidebar .close.active .close__btn::before {
-    -webkit-transform: rotateZ(90deg);
-    transform: rotateZ(90deg);
-    top: 0;
-}
-
-.sidebar .close.active .close__btn::after {
-    -webkit-transform: rotateZ(90deg);
-    transform: rotateZ(90deg);
-    bottom: 0;
-}
-
-.sidebar:hover .close__btn {
+.sidebar .sidebar__header .close:hover .close__btn {
     -webkit-animation: close__btn 1s linear infinite;
     animation: close__btn 1s linear infinite;
 }
 
-.sidebar:hover .close__btn::before {
+.sidebar .sidebar__header .close:hover .close__btn::before {
     -webkit-animation: close__btn-before 1s linear infinite;
     animation: close__btn-before 1s linear infinite;
 }
 
-.sidebar:hover .close__btn::after {
+.sidebar .sidebar__header .close:hover .close__btn::after {
     -webkit-animation: close__btn-after 1s linear infinite;
     animation: close__btn-after 1s linear infinite;
 }
@@ -931,8 +991,57 @@ select:focus {
     }
 }
 
+.sidebar .sidebar__header .close.active .close__btn {
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+
+.sidebar .sidebar__header .close.active .close__btn::before {
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
+    top: 0;
+}
+
+.sidebar .sidebar__header .close.active .close__btn::after {
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
+    bottom: 0;
+}
+
 .sidebar.active {
     width: 15%;
+}
+
+.nav__admin {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    transition: .2s linear;
+}
+
+.nav__admin a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border-radius: 25px;
+    transition: .2s linear;
+    position: relative;
+    margin: 10px 0;
+}
+
+.nav__admin a:hover {
+    background-color: #fff;
+    color: #363636;
+}
+
+.nav__admin.active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
 }
 
 button {
@@ -973,6 +1082,37 @@ button:hover::after {
     right: 0;
     width: 150px;
     height: 50px;
+}
+
+.btn__add {
+    background-color: #202020;
+    grid-column-start: 2;
+    width: 50%;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    transition: .2s linear;
+}
+
+.btn__add::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+    transition: .4s linear;
+}
+
+.btn__add:hover {
+    background-color: #121212;
+}
+
+.btn__add:hover::after {
+    left: 100%;
 }
 
 .container {
